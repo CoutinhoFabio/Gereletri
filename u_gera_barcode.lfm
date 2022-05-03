@@ -1,0 +1,118 @@
+object W_GenerateBarCode: TW_GenerateBarCode
+  Left = 457
+  Height = 145
+  Top = 224
+  Width = 339
+  BorderStyle = bsDialog
+  Caption = 'Gerar Código de Barras'
+  ClientHeight = 145
+  ClientWidth = 339
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '2.0.12.0'
+  object Panel2: TPanel
+    Left = 0
+    Height = 46
+    Top = 99
+    Width = 339
+    Align = alBottom
+    BevelInner = bvLowered
+    ClientHeight = 46
+    ClientWidth = 339
+    TabOrder = 0
+    object BtnImprimir: TSpeedButton
+      Left = 128
+      Height = 32
+      Top = 8
+      Width = 76
+      Caption = 'Imprimir'
+      OnClick = BtnImprimirClick
+    end
+    object BtnSair: TSpeedButton
+      Left = 254
+      Height = 32
+      Top = 8
+      Width = 76
+      Caption = 'Sair'
+      OnClick = BtnSairClick
+    end
+    object BtnSalvar: TSpeedButton
+      Left = 8
+      Height = 32
+      Top = 8
+      Width = 71
+      Caption = 'Salvar'
+      OnClick = BtnSalvarClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 99
+    Top = 0
+    Width = 237
+    Align = alLeft
+    BevelInner = bvLowered
+    ClientHeight = 99
+    ClientWidth = 237
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 52
+      Width = 31
+      Caption = 'Texto:'
+      ParentColor = False
+    end
+    object Edit1: TEdit
+      Left = 8
+      Height = 23
+      Top = 69
+      Width = 222
+      MaxLength = 250
+      OnChange = Edit1Change
+      TabOrder = 1
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 15
+      Top = 7
+      Width = 46
+      Caption = 'Produto:'
+      ParentColor = False
+    end
+    object ComboBox1: TComboBox
+      Left = 8
+      Height = 23
+      Top = 23
+      Width = 222
+      ItemHeight = 15
+      OnChange = ComboBox1Change
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object Panel1: TPanel
+    Left = 237
+    Height = 99
+    Top = 0
+    Width = 102
+    Align = alClient
+    BevelInner = bvLowered
+    ClientHeight = 99
+    ClientWidth = 102
+    TabOrder = 2
+    object BarcodeQR1: TBarcodeQR
+      Left = 8
+      Height = 85
+      Top = 7
+      Width = 85
+      StrictSize = False
+      BackgroundColor = clWindow
+      Text = 'TBarcodeQR'
+    end
+  end
+  object PrintDialog1: TPrintDialog
+    Left = 181
+    Top = 49
+  end
+end

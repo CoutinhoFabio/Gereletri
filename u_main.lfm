@@ -1,0 +1,767 @@
+object W_Main: TW_Main
+  Left = 313
+  Height = 402
+  Top = 151
+  Width = 716
+  Caption = 'Gereletri (Gerenciador de Equipamentos Eletronicos) V1.0'
+  ClientHeight = 402
+  ClientWidth = 716
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.12.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 402
+    Top = 0
+    Width = 716
+    ActivePage = TabSheet2
+    Align = alClient
+    TabIndex = 1
+    TabOrder = 0
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Estoque'
+      ClientHeight = 374
+      ClientWidth = 708
+      object DBGridEstoque: TDBGrid
+        Left = 0
+        Height = 268
+        Top = 106
+        Width = 708
+        Align = alClient
+        AutoFillColumns = True
+        Color = clWindow
+        Columns = <>
+        DataSource = DSPecas
+        TabOrder = 0
+      end
+      object Panel1: TPanel
+        Left = 0
+        Height = 106
+        Top = 0
+        Width = 708
+        Align = alTop
+        ClientHeight = 106
+        ClientWidth = 708
+        TabOrder = 1
+        object ComboBox1: TComboBox
+          Left = 94
+          Height = 23
+          Top = 8
+          Width = 138
+          ItemHeight = 15
+          ItemIndex = 0
+          Items.Strings = (
+            'Barra de Terminais'
+            'Capacitor'
+            'Circuito Integrado'
+            'Diodo'
+            'Jumper'
+            'Led'
+            'Resistor'
+            'Transistor'
+          )
+          TabOrder = 0
+          Text = 'Barra de Terminais'
+        end
+        object Label1: TLabel
+          Left = 5
+          Height = 15
+          Top = 12
+          Width = 70
+          Caption = 'Tipo de peça:'
+          ParentColor = False
+        end
+        object Label2: TLabel
+          Left = 240
+          Height = 15
+          Top = 12
+          Width = 29
+          Caption = 'Valor:'
+          ParentColor = False
+        end
+        object Edit1: TEdit
+          Left = 280
+          Height = 23
+          Top = 8
+          Width = 106
+          TabOrder = 1
+        end
+        object CheckBox1: TCheckBox
+          Left = 390
+          Height = 19
+          Top = 8
+          Width = 45
+          Caption = 'SMD'
+          TabOrder = 2
+        end
+        object Label3: TLabel
+          Left = 5
+          Height = 15
+          Top = 45
+          Width = 54
+          Caption = 'Descrição:'
+          ParentColor = False
+        end
+        object Edit2: TEdit
+          Left = 94
+          Height = 23
+          Top = 40
+          Width = 341
+          MaxLength = 40
+          TabOrder = 3
+        end
+        object BtnAdicionarPeca: TButton
+          Left = 280
+          Height = 25
+          Top = 72
+          Width = 75
+          Caption = 'Adicionar'
+          OnClick = BtnAdicionarPecaClick
+          TabOrder = 5
+        end
+        object BtnExcluirPeca: TButton
+          Left = 360
+          Height = 25
+          Top = 72
+          Width = 75
+          Caption = 'Excluir'
+          OnClick = BtnExcluirPecaClick
+          TabOrder = 6
+        end
+        object Label7: TLabel
+          Left = 5
+          Height = 15
+          Top = 76
+          Width = 71
+          Caption = 'Qtd. estoque:'
+          ParentColor = False
+        end
+        object Edit4: TEdit
+          Left = 94
+          Height = 23
+          Top = 72
+          Width = 138
+          Alignment = taCenter
+          TabOrder = 4
+          Text = '0'
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Produtos'
+      ClientHeight = 374
+      ClientWidth = 708
+      object Panel2: TPanel
+        Left = 170
+        Height = 374
+        Top = 0
+        Width = 538
+        Align = alClient
+        ClientHeight = 374
+        ClientWidth = 538
+        TabOrder = 0
+        object Panel5: TPanel
+          Left = 1
+          Height = 50
+          Top = 1
+          Width = 536
+          Align = alTop
+          ClientHeight = 50
+          ClientWidth = 536
+          ParentFont = False
+          TabOrder = 0
+          object Label4: TLabel
+            Left = 10
+            Height = 15
+            Top = 2
+            Width = 28
+            Caption = 'Peça:'
+            ParentColor = False
+          end
+          object Label5: TLabel
+            Left = 160
+            Height = 15
+            Top = 2
+            Width = 29
+            Caption = 'Valor:'
+            ParentColor = False
+          end
+          object Label6: TLabel
+            Left = 314
+            Height = 15
+            Top = 4
+            Width = 62
+            Caption = 'Quantidade'
+            ParentColor = False
+            OnClick = Label6Click
+          end
+          object Edit3: TEdit
+            Left = 312
+            Height = 23
+            Top = 20
+            Width = 64
+            Alignment = taCenter
+            TabOrder = 0
+            Text = '0'
+          end
+          object BtnInserirPeca: TSpeedButton
+            Left = 384
+            Height = 23
+            Top = 20
+            Width = 56
+            Caption = 'Inserir'
+            OnClick = BtnInserirPecaClick
+          end
+          object ComboBoxValor: TComboBox
+            Left = 160
+            Height = 23
+            Top = 20
+            Width = 140
+            ItemHeight = 15
+            Style = csDropDownList
+            TabOrder = 1
+          end
+          object ComboBoxTipo: TComboBox
+            Left = 9
+            Height = 23
+            Top = 20
+            Width = 140
+            ItemHeight = 15
+            OnChange = ComboBoxTipoChange
+            Style = csDropDownList
+            TabOrder = 2
+          end
+          object BtnExcluirPeca1: TSpeedButton
+            Left = 472
+            Height = 23
+            Top = 20
+            Width = 56
+            Anchors = [akTop, akRight]
+            Caption = 'Excluir'
+            OnClick = BtnExcluirPeca1Click
+          end
+        end
+        object DBGridLista: TDBGrid
+          Left = 1
+          Height = 272
+          Top = 51
+          Width = 536
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'id_prod'
+              Width = 100
+              FieldName = 'id_prod'
+            end          
+            item
+              Title.Caption = 'id_peca'
+              Width = 100
+              FieldName = 'id_peca'
+            end          
+            item
+              PickList.Strings = (
+                'Capacitor'
+                'Diodo (SMD)'
+                'Resistor'
+                'Resistor'
+                'Resistor'
+                'Led'
+              )
+              Title.Caption = 'tipo'
+              Width = 100
+              FieldName = 'tipo'
+            end          
+            item
+              PickList.Strings = (
+                '100nF'
+                '1N4007'
+                '100R'
+                '220R'
+                '330R'
+                '3mm'
+              )
+              Title.Caption = 'valor'
+              Width = 100
+              FieldName = 'valor'
+            end          
+            item
+              Title.Caption = 'quantidade'
+              Width = 103
+              FieldName = 'quantidade'
+            end>
+          DataSource = DSLista
+          TabOrder = 1
+        end
+        object Panel12: TPanel
+          Left = 1
+          Height = 50
+          Top = 323
+          Width = 536
+          Align = alBottom
+          ClientHeight = 50
+          ClientWidth = 536
+          TabOrder = 2
+          object BtnImprimirLista: TSpeedButton
+            Left = 200
+            Height = 34
+            Top = 8
+            Width = 144
+            Caption = 'Imprimir Lista'
+            OnClick = BtnImprimirListaClick
+          end
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Height = 374
+        Top = 0
+        Width = 170
+        Align = alLeft
+        ClientHeight = 374
+        ClientWidth = 170
+        TabOrder = 1
+        object Panel4: TPanel
+          Left = 1
+          Height = 50
+          Top = 1
+          Width = 168
+          Align = alTop
+          ClientHeight = 50
+          ClientWidth = 168
+          TabOrder = 0
+          object BtnNovoProduto: TSpeedButton
+            Left = 0
+            Height = 34
+            Top = 6
+            Width = 64
+            Caption = 'Novo Produto'
+            OnClick = BtnNovoProdutoClick
+          end
+          object BtnExcluirProduto: TSpeedButton
+            Left = 96
+            Height = 34
+            Top = 6
+            Width = 64
+            Caption = 'Excluir Produto'
+            OnClick = BtnExcluirProdutoClick
+          end
+        end
+        object DBGridProdutos: TDBGrid
+          Left = 1
+          Height = 272
+          Top = 51
+          Width = 168
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DSProdutos
+          TabOrder = 1
+        end
+        object Panel6: TPanel
+          Left = 1
+          Height = 50
+          Top = 323
+          Width = 168
+          Align = alBottom
+          ClientHeight = 50
+          ClientWidth = 168
+          TabOrder = 2
+          object BtnGerarCodigoQR: TSpeedButton
+            Left = 8
+            Height = 34
+            Top = 8
+            Width = 144
+            Caption = 'Gerar código QR'
+            OnClick = BtnGerarCodigoQRClick
+          end
+        end
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Historico'
+      ClientHeight = 374
+      ClientWidth = 708
+      object Panel7: TPanel
+        Left = 0
+        Height = 374
+        Top = 0
+        Width = 170
+        Align = alLeft
+        ClientHeight = 374
+        ClientWidth = 170
+        TabOrder = 0
+        object Panel9: TPanel
+          Left = 1
+          Height = 50
+          Top = 1
+          Width = 168
+          Align = alTop
+          ClientHeight = 50
+          ClientWidth = 168
+          TabOrder = 0
+          object Label8: TLabel
+            Left = 40
+            Height = 15
+            Top = 30
+            Width = 88
+            Caption = 'Numero de Serie'
+            ParentColor = False
+          end
+        end
+        object DBGridBarcodes: TDBGrid
+          Left = 1
+          Height = 245
+          Top = 51
+          Width = 168
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DSBarcode
+          TabOrder = 1
+        end
+        object Panel11: TPanel
+          Left = 1
+          Height = 77
+          Top = 296
+          Width = 168
+          Align = alBottom
+          ClientHeight = 77
+          ClientWidth = 168
+          TabOrder = 2
+          object EditCodigoLido: TEdit
+            Left = 0
+            Height = 23
+            Top = 47
+            Width = 161
+            ReadOnly = True
+            TabOrder = 0
+          end
+          object BtnLerCodigoQR: TButton
+            Left = 16
+            Height = 34
+            Top = 8
+            Width = 137
+            Caption = 'Ler Código QR'
+            OnClick = BtnLerCodigoQRClick
+            TabOrder = 1
+          end
+        end
+      end
+      object Panel8: TPanel
+        Left = 170
+        Height = 374
+        Top = 0
+        Width = 538
+        Align = alClient
+        ClientHeight = 374
+        ClientWidth = 538
+        TabOrder = 1
+        object Panel10: TPanel
+          Left = 1
+          Height = 50
+          Top = 1
+          Width = 536
+          Align = alTop
+          TabOrder = 0
+        end
+        object DBGridHistorico: TDBGrid
+          Left = 1
+          Height = 322
+          Top = 51
+          Width = 536
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DSHistorico
+          TabOrder = 1
+        end
+      end
+    end
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    Port = 0
+    Database = 'C:\Users\gallibrasil\Desktop\UNICESUMAR\TCC\Lazarus\Gereletri\database\Database.sqlite3'
+    Protocol = 'sqlite-3'
+    LibraryLocation = 'C:\Users\gallibrasil\Desktop\UNICESUMAR\TCC\Lazarus\Gereletri\database\sqlite3.dll'
+    Left = 208
+    Top = 256
+  end
+  object QueryProdutos: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM Produtos'
+    )
+    Params = <>
+    Left = 424
+    Top = 256
+    object QueryProdutosid: TLargeintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryProdutosnome: TStringField
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+  end
+  object DSProdutos: TDataSource
+    DataSet = QueryProdutos
+    OnDataChange = DSProdutosDataChange
+    Left = 496
+    Top = 256
+  end
+  object QueryPecas: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM Pecas'
+    )
+    Params = <>
+    Left = 288
+    Top = 256
+    object QueryPecasid: TLargeintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryPecastipo: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 40
+    end
+    object QueryPecasvalor: TStringField
+      FieldKind = fkData
+      FieldName = 'valor'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryPecasdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object QueryPecasqtd_estoque: TLargeintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'qtd_estoque'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object QueryHistorico: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM Historico'
+    )
+    Params = <>
+    Left = 576
+    Top = 315
+    object QueryHistoricoid: TLargeintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryHistoricoid_prod: TLargeintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'id_prod'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryHistoricodata: TStringField
+      FieldKind = fkData
+      FieldName = 'data'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object QueryHistoricoserie: TStringField
+      FieldKind = fkData
+      FieldName = 'serie'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 30
+    end
+    object QueryHistoricodescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object DSHistorico: TDataSource
+    DataSet = QueryHistorico
+    Left = 648
+    Top = 315
+  end
+  object DSPecas: TDataSource
+    DataSet = QueryPecas
+    Left = 344
+    Top = 256
+  end
+  object QueryLista: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM Lista WHERE id_prod=1'
+    )
+    Params = <>
+    Left = 576
+    Top = 256
+    object QueryListaid_prod: TLargeintField
+      FieldKind = fkData
+      FieldName = 'id_prod'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryListaid_peca: TLargeintField
+      FieldKind = fkData
+      FieldName = 'id_peca'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StringField2: TStringField
+      FieldKind = fkLookup
+      FieldName = 'tipo'
+      Index = 2
+      KeyFields = 'id_peca'
+      LookupCache = False
+      LookupDataSet = QueryPecas
+      LookupKeyFields = 'id'
+      LookupResultField = 'tipo'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object StringField1: TStringField
+      FieldKind = fkLookup
+      FieldName = 'valor'
+      Index = 3
+      KeyFields = 'id_peca'
+      LookupCache = False
+      LookupDataSet = QueryPecas
+      LookupKeyFields = 'id'
+      LookupResultField = 'valor'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object QueryListaquantidade: TLargeintField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object DSLista: TDataSource
+    DataSet = QueryLista
+    Left = 648
+    Top = 256
+  end
+  object QueryBarcode: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'SELECT serie FROM Historico'
+    )
+    Params = <>
+    Left = 424
+    Top = 320
+  end
+  object DSBarcode: TDataSource
+    DataSet = QueryBarcode
+    OnDataChange = DSBarcodeDataChange
+    Left = 496
+    Top = 320
+  end
+  object frReport1: TfrReport
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    Left = 195
+    Top = 357
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = QueryLista
+    Left = 256
+    Top = 360
+  end
+end

@@ -1,0 +1,24 @@
+object SplashScreen: TSplashScreen
+  Left = 319
+  Height = 240
+  Top = 170
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'SplashScreen'
+  ClientHeight = 240
+  ClientWidth = 320
+  Position = poDesktopCenter
+  LCLVersion = '2.0.12.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    Caption = 'Gereletri V1.0'
+    Font.Height = -24
+    Font.Name = 'Roboto'
+    ParentFont = False
+    TabOrder = 0
+  end
+end
