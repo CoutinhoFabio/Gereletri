@@ -1,5 +1,5 @@
 # Gereletri
-Electronics management software application
+Electronics management software application. Software generated for software engineering course.
 
 [English]
 
@@ -18,6 +18,7 @@ Dependencies
 
 Descrição
   Este programa tem como objetivo o controle de estoque de componentes eletrônicos, a geração de produtos com lista de peças, a geração e leitura de código de barras (QR code) e histórico de assistencia técnica baseada na leitura de código de barras.
+  Este software foi gerado como conlusão de curso de engenharia de software.
 
 Dependências
 - IDE Lazarus. Disponível para download em https://www.lazarus-ide.org/
