@@ -237,6 +237,12 @@ begin
   else
   if(PageControl1.ActivePageIndex = 2)then //aba Historico
   begin
+    QueryBarcode.Close;
+    QueryBarcode.SQL.Clear();
+    QueryBarcode.SQL.Text:= 'SELECT DISTINCT serie FROM Historico';
+    QueryBarcode.Open;
+
+    QueryHistorico.Close;
     QueryHistorico.SQL.Clear();
     QueryHistorico.SQL.Text:= 'SELECT * FROM Historico';
     QueryHistorico.Open;
@@ -565,6 +571,7 @@ begin
   begin
     //Entrada no histórico encontrada.
     //Filtra o historico pra apresentar todas as entradas correspondentes
+    DSBarCode.DataSet.Locate('serie',serie,[]);
     QueryHistorico.SQL.Clear;
     QueryHistorico.SQL.Text:= 'SELECT * FROM Historico WHERE serie=' + QuotedStr(serie);
     QueryHistorico.Open;
@@ -590,6 +597,16 @@ begin
         temp_query.ParamByName('data').AsString:= DateToStr(Now());
         temp_query.ExecSQL;
         temp_query.Close;
+
+        QueryBarcode.Close;
+        QueryBarcode.SQL.Clear;
+        QueryBarcode.SQL.Text:= 'SELECT DISTINCT serie FROM Historico';
+        QueryBarcode.Open;
+
+        QueryHistorico.Close;
+        QueryHistorico.SQL.Clear;
+        QueryHistorico.SQL.Text:= 'SELECT * FROM Historico';
+        QueryHistorico.Open;
       end;
     end;
   end;
@@ -599,4 +616,3 @@ begin
 end;
 
 end.
-
